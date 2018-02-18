@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yubi Suma</title>
+</head>
+<body>
+    <script>
+
+//Determine the number of thumbs
+
+    var computerThumb = 2;
+    var userThumb = 2;
+
+    var numThumbs = computerThumb + userThumb;
+
+//Guess how many thumbs will be raised
+
+        var direction = alert("Directions: Imagine you and the computer have both your fists pressed together. The objective is to correctly guess how many thumbs you and the computer will raise combined, between 0 and " + numThumbs);
+
+    while ( computerThumb > 0 || userThumb > 0) {
+
+        var userThumbsUp = parseInt(prompt("How many thumbs would you like to put up between 0 and " + userThumb));
+        var userChoice = parseInt(prompt("Yubi suma! (Guess the total number of thumbs!)"));
+
+//Generate random thumb number for computer
+
+        
+        //var computerChoice = Math.floor(Math.random() * numThumbs + 1);
+        
+        var computerThumbsUp = Math.floor(Math.random() * computerThumb + 1);
+
+        //If guess equals true, one user thumb is taken away
+        
+        if (userChoice === userThumbsUp + computerThumbsUp) {
+            userThumb -=1;
+            alert("You're correct! Take a thumb away!");
+        } else {
+            alert("Incorrect! " + (userThumbsUp + computerThumbsUp) + " thumb(s) were put up!")
+
+        //Turn passes to computer
+        };
+
+
+//Collect user thumbs
+
+         var userThumbsUp = prompt("Now it's the computer's turn to guess! How many thumbs would you like to put up (remember: you have " + userThumb + " thumb(s) left).");
+
+//Generate computer decision for number of thumbs
+
+        var computerThumbsUp = parseInt(Math.floor(Math.random() * computerThumb + 1));
+        alert("The computer has chosen to put " + (computerThumbsUp) + " thumb(s) up.")
+
+//Generate computer decision for total number of thumbs
+
+        var computerChoice = computerThumbsUp + parseInt(Math.floor(Math.random() * parseInt(userThumb + 1)));
+        var computerChoice = parseInt(alert("Yubi suma! The computer has guessed the total number of thumbs going up is " + parseInt(computerChoice) + "!"));
+
+//Compare
+
+        if (computerChoice === (userThumbsUp + computerThumbsUp)) {
+            computerThumb -=1;
+            alert("The computer is correct! It'll take a thumb away!");
+        } else {
+            alert("Incorrect! " + parseInt(userThumbsUp + computerThumbsUp) + " thumb(s) total was/were put up!")
+        };
+        alert("Now it's your turn.")
+    }; 
+    // else {
+    //     alert("Game over")
+    // };
+    
+        //If guess equals true, one user thumb is taken away
+
+        //If guess equals false, turn passes to computer
+
+
+    </script>
+</body>
+</html>
